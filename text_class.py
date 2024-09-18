@@ -51,6 +51,16 @@ def predict_sentiment(text):
 
 
 #Test the prediction function
-print(predict_sentiment("I absolutely loved this movie! It was fantastic."))
-print(predict_sentiment("I Love the u"))
-print(predict_sentiment("Wanna Hang OUt"))
+while True:
+    user_input = input("Enter a movie review (or 'quit' to exit): ")
+    if user_input.lower() == 'quit':
+        print("Exiting!!")
+        break
+    if not user_input.strip():
+        print("Empty input provided.")
+        continue
+    sentiment = predict_sentiment(user_input)
+    if sentiment == "pos":
+        print("The given statement is Positive.")
+    else:
+        print("The given statement is Negative.")
